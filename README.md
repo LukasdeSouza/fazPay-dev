@@ -1,8 +1,12 @@
-# React + Vite
+# FazPay DevProject
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Projeto proposto pela fazPay com o objetivo de avaliar habilidades em criação de aplicações utilizando React, Jest e outras bibliotecas.
 
-Currently, two official plugins are available:
+A aplicação foi construída através do Vite, feita com Javascript, MUI, Mobx, Jest e React-router-dom para o controle de Rotas
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Nela é possível através de mockAPI's realizar Login, Cadastrar novo usuário, acessar a listagem de produtos e alterar produtos
+
+### Para rodar o projeto é necessário
+ - Criar um Fork ou Clone do projeto através da Url Git do mesmo
+ - Abrir o projeto e rodar o comando "yarn" ou "npm install" no terminal
+ - Após instaladas as depedências, basta digitar em seu terminal "yarn run dev" ou "npm run dev"
