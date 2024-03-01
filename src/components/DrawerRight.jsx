@@ -36,7 +36,7 @@ const DrawerRight = ({ selectedProduct, openDrawerRight, setOpenDrawerRight, onC
         <MenuList sx={{ borderTop: '1px solid lightgrey' }}>
           <Box px={2}>
             <Stack mt={2}>
-              <Stack direction={'row'} alignItems={'center'}>
+              <Stack direction={'row'} alignItems={'center'} gap={0.5}>
                 <Typography
                   variant='caption'
                   fontFamily={'Poppins'}
@@ -51,7 +51,7 @@ const DrawerRight = ({ selectedProduct, openDrawerRight, setOpenDrawerRight, onC
                   {selectedProduct[0]?.name}
                 </Typography>
               </Stack>
-              <Stack direction={'row'} alignItems={'center'}>
+              <Stack direction={'row'} alignItems={'center'} gap={0.5}>
                 <Typography
                   variant='caption'
                   fontFamily={'Poppins'}
@@ -66,7 +66,7 @@ const DrawerRight = ({ selectedProduct, openDrawerRight, setOpenDrawerRight, onC
                   {selectedProduct[0]?.quantity}
                 </Typography>
               </Stack>
-              <Stack direction={'row'} alignItems={'center'}>
+              <Stack direction={'row'} alignItems={'center'} gap={0.5}>
                 <Typography
                   variant='caption'
                   fontFamily={'Poppins'}

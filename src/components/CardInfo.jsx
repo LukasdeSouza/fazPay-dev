@@ -21,13 +21,13 @@ const CardInfo = ({ id, title, image, currency, price, quantity, onClickEdit, on
             fontFamily={'Poppins'}
             // fontWeight={600}
           >
-            <b>{title}</b> - {id}
+            <b>{title}</b>
           </Typography>
         }
         action={
           <Tooltip title={'Excluir Produto'} arrow>
             <IconButton size='small' onClick={onClickDelete}>
-              <DeleteOutlineRounded />
+              <DeleteOutlineRounded color='error'/>
             </IconButton>
           </Tooltip>
         }

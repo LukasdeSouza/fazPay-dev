@@ -1,5 +1,5 @@
 import { ArrowBackIosRounded, Logout, MenuOutlined } from '@mui/icons-material'
-import { Box, Drawer, IconButton, ListItemIcon, ListItemText, MenuItem, MenuList, Stack, Toolbar, Tooltip, Typography } from '@mui/material'
+import { Box, Divider, Drawer, IconButton, ListItemIcon, ListItemText, MenuItem, MenuList, Stack, Toolbar, Tooltip, Typography } from '@mui/material'
 import { useState } from 'react'
 import { Outlet, useNavigate } from 'react-router-dom'
 import { menuItems } from './MenuItems'
@@ -42,7 +42,6 @@ const RootLayout = () => {
             >
               <Logout sx={{ fontSize: 22 }} />
             </IconButton>
-
           </Tooltip>
         </Stack>
       </Toolbar>
@@ -97,6 +96,11 @@ const RootLayout = () => {
           </MenuList>
         </Box>
       </Drawer>
+      <Stack justifyContent={'center'} alignItems={'center'} padding={2}>
+        <Typography variant='h5' fontFamily={'Poppins'} fontWeight={600}>
+          Faz Pay
+        </Typography>
+      </Stack>
       <Outlet />
     </>
   )
