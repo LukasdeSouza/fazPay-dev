@@ -1,0 +1,28 @@
+{
+  "male": [
+    {
+      "id": 1575,
+      "img": "https://imgs.search.brave.com/lVW-WBphcURTudcdRaHhwgUS_sDW5RTGFjLmHGeu4oE/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9kM3Zu/eWk1ajZiYTFtYy5j/bG91ZGZyb250Lm5l/dC9DdXN0b20vQ29u/dGVudC9Qcm9kdWN0/cy8xNi83OC8xNjc4/MDkxX2NhbWlzYS1y/ZWxheC0zMTQ2MDM1/NjhfbTFfNjM4Mzc0/Mjc5MTU5MDAyMTcz/LmpwZw",
+      "name": "Camisa",
+      "price": 89.97,
+      "currency": "R$",
+      "quantity": 5
+    },
+    {
+      "id": 2675,
+      "img": "https://imgs.search.brave.com/b_dYSmouZHDRyIJLuIgS4HK-cv3ML3dJPYj6o3lSOm8/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hcHBy/b3ZlLmZiaXRzc3Rh/dGljLm5ldC9pbWcv/cC9jYW1pc2V0YS1v/dmVyc2l6ZWQtYXBw/cm92ZS14LWRhbWFz/c2FjbGFuLWNoYWlu/LXByZXRhLTc0MjMw/LzI4NjQyOS0xLmpw/Zz93PTYwMCZoPTkw/OSZ2PW5vLWNoYW5n/ZSZxcz1pZ25vcmU",
+      "name": "Camiseta",
+      "price": 35.99,
+      "currency": "R$",
+      "quantity": 5
+    },
+    {
+      "id": 3675,
+      "img": "https://imgs.search.brave.com/oF0oLSl37Q09pfogi6Il_YQ0ACS2b6Q_6CAlH2mVbwQ/rs:fit:860:0:0/g:ce/aHR0cHM6Ly9hcHBy/b3ZlLmZiaXRzc3Rh/dGljLm5ldC9pbWcv/cC9jYWxjYS1qb2dn/ZXItYXBwcm92ZS15/b3Vyc2VsZi1wcmV0/by03NDA5NC8yODU2/MDgtMS5qcGc_dz02/MDAmaD05MDkmdj1u/by1jaGFuZ2UmcXM9/aWdub3Jl",
+      "name": "Calça",
+      "price": 97.99,
+      "currency": "R$",
+      "quantity": 5
+    }
+  ]
+}
