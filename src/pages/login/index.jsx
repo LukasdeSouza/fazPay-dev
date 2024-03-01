@@ -1,8 +1,10 @@
-import { Box, Button, Link, Snackbar, Stack, TextField, Typography } from '@mui/material'
-import { useState } from 'react'
+import { Box, Button, Fade, Grow, Link, Slide, Snackbar, Stack, TextField, Typography } from '@mui/material'
+import { useEffect, useState } from 'react'
 import CardEmpty from '../../components/CardEmpty'
 import { LoadingButton } from '@mui/lab'
 import InputPassword from '../../components/InputPassword'
+import fazPayBackground from '../../assets/faz-payBackground.png'
+import fazPayLogo from '../../assets/FAZPAY-LOGO-branca.png'
 import { useNavigate } from 'react-router-dom'
 
 const LoginPage = () => {
@@ -11,6 +13,7 @@ const LoginPage = () => {
   const [openSnackBar, setOpenSnackBar] = useState(false)
   const [user, setUser] = useState(null)
   const [password, setPassword] = useState(null)
+  const [showLogo, setShowLogo] = useState(false)
 
   const handleLogin = (e) => {
     e.preventDefault()
@@ -29,9 +32,22 @@ const LoginPage = () => {
     }
   }
 
+  useEffect(() => {
+    setTimeout(() => {
+      setShowLogo(true)
+    }, [300])
+  }, [])
+
   return (
-    <Box sx={{ width: '100%', height: '100vh' }}>
-      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'}>
+    <Box sx={{
+      width: '100%',
+      height: '100vh',
+      background: 'linear-gradient(86deg, rgba(70,59,131,1) 0%, rgba(113,97,194,1) 49%, rgba(93,71,212,1) 100%)'
+    }}>
+      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'} gap={3}>
+        <Grow in={showLogo} timeout={800}>
+          <img src={fazPayLogo} width={140} />
+        </Grow>
         <CardEmpty title={'Login de Usuário'}>
           <Typography variant='caption' fontFamily={'Poppins'} textAlign={'center'}>
             Preencha com seu usuário e senha para acessar

@@ -1,6 +1,5 @@
 import { Backdrop, Box, Stack, TextField } from '@mui/material'
 import CardInfo from '../../../components/CardInfo'
-import { maleProductsList } from '../../../mockApi'
 import { useContext, useEffect, useState } from 'react'
 import DrawerRight from '../../../components/DrawerRight'
 import RootStoreContext from '../../../stores/RootStore'
@@ -22,11 +21,13 @@ const MalesProductsPage = observer(() => {
     productStore.setState('product', selected)
   }
 
-  const fetchList = () => {
+  const fetchList = async () => {
     productStore.setLoading(true)
-    return new Promise((resolve) => {
-      resolve(maleProductsList);
-    });
+    const response = await axios.get('../../../mockApi/male.json')
+    console.log(response.data)
+    // return new Promise((resolve) => {
+    //   resolve(maleProductsList);
+    // });
   };
 
   useEffect(() => {

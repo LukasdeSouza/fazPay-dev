@@ -2,8 +2,9 @@ import { Box, Button, Stack, TextField, Typography } from '@mui/material'
 import React from 'react'
 import CardEmpty from '../../components/CardEmpty'
 import { LoadingButton } from '@mui/lab'
-import { ArrowBackIos, ArrowBackOutlined, ArrowBackRounded, ArrowBackSharp, ArrowCircleLeft, ArrowLeft, ArrowLeftRounded, SendOutlined, SendRounded } from '@mui/icons-material'
+import { ArrowBackSharp, SendRounded } from '@mui/icons-material'
 import { useNavigate } from 'react-router-dom'
+import fazPayLogo from '../../assets/FAZPAY-LOGO-branca.png'
 
 const ForgotPasswordPage = () => {
   const navigate = useNavigate()
@@ -13,8 +14,13 @@ const ForgotPasswordPage = () => {
   }
 
   return (
-    <Box sx={{ width: '100%', height: '100vh' }}>
-      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'}>
+    <Box sx={{
+      width: '100%',
+      height: '100vh',
+      background: 'linear-gradient(86deg, rgba(70,59,131,1) 0%, rgba(113,97,194,1) 49%, rgba(93,71,212,1) 100%)'
+    }}>
+      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'} gap={3}>
+        <img src={fazPayLogo} width={140} />
         <CardEmpty title={'Esqueceu sua Senha?'}>
           <Typography variant='caption' fontFamily={'Poppins'} textAlign={'center'}>
             Não se preocupe, receba em seu email uma redefinição de senha
@@ -45,7 +51,7 @@ const ForgotPasswordPage = () => {
               </LoadingButton>
               <Button
                 variant='outlined'
-                startIcon={<ArrowBackSharp/>}
+                startIcon={<ArrowBackSharp />}
                 onClick={() => navigate('/')}
                 sx={{
                   color: '#7161c2',

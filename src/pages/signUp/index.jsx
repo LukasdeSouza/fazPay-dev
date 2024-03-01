@@ -4,6 +4,7 @@ import CardEmpty from '../../components/CardEmpty'
 import InputPassword from '../../components/InputPassword'
 import { LoadingButton } from '@mui/lab'
 import { useNavigate } from 'react-router-dom'
+import fazPayLogo from '../../assets/FAZPAY-LOGO-branca.png'
 
 const SignUpPage = () => {
   const navigate = useNavigate()
@@ -16,8 +17,13 @@ const SignUpPage = () => {
   const handleSignUp = () => { }
 
   return (
-    <Box sx={{ width: '100%', height: '100vh' }}>
-      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'}>
+    <Box sx={{
+      width: '100%',
+      height: '100vh',
+      background: 'linear-gradient(86deg, rgba(70,59,131,1) 0%, rgba(113,97,194,1) 49%, rgba(93,71,212,1) 100%)'
+    }}>
+      <Stack height={'100%'} justifyContent={'center'} alignItems={'center'} gap={3}>
+        <img src={fazPayLogo} width={140} />
         <CardEmpty title={'Cadastro de Usuário'}>
           <Typography variant='caption' fontFamily={'Poppins'} sx={{ color: '#777' }}>
             Preencha as informaçoes abaixo para se cadastrar

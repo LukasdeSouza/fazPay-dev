@@ -1,7 +1,6 @@
 import { Stack } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 import CardInfo from '../../../components/CardInfo'
-import { femaleProductsList } from '../../../mockApi'
 import { useEffect, useState } from 'react'
 
 const FemaleProductsPage = () => {
@@ -12,20 +11,16 @@ const FemaleProductsPage = () => {
     navigate(`/products/female/${index}`)
   }
 
-  const fetchList = () => {
-    return new Promise((resolve) => {
-      resolve(femaleProductsList);
-    });
+  const fetchList = async() => {
+    const response = await axios.get('../../../mockApi/female.json')
+    console.log(response.data)
+    // return new Promise((resolve) => {
+    //   resolve(femaleProductsList);
+    // });
   };
 
   useEffect(() => {
     fetchList()
-      .then(data => {
-        setProducts(data)
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
   }, [])
 
   return (

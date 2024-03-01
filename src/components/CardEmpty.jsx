@@ -7,7 +7,7 @@ const CardEmpty = ({ title, children }) => {
       sx={{
         borderRadius: 2,
         padding: 2,
-        boxShadow: ' -11px 6px 5px 0px rgba(217,210,217,1);'
+        boxShadow: ' -11px 6px 5px 0px #0d0d0d7d;'
       }}>
       <Typography
         variant="h6"
