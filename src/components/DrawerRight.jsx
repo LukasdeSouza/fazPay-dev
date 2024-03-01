@@ -1,14 +1,8 @@
 import { ArrowBackIosRounded } from '@mui/icons-material'
-import { Box, Divider, Drawer, IconButton, MenuList, Stack, TextField, Typography } from '@mui/material'
-import { useContext, useState } from 'react'
-import RootStoreContext from '../stores/RootStore'
-import { observer } from 'mobx-react-lite'
+import { Box, Drawer, IconButton, MenuList, Stack, Typography } from '@mui/material'
 
 
-const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children }) => {
-  const { productStore } = useContext(RootStoreContext)
-
-  const [productQuantity, setQuantity] = useState(productStore.state.product?.quantity)
+const DrawerRight = ({ selectedProduct, openDrawerRight, setOpenDrawerRight, onCloseDrawerRight, children }) => {
 
   const onChangeQuantity = (e) => {
     setQuantity(e.target.value)
@@ -18,7 +12,7 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
     <Drawer
       anchor='right'
       open={openDrawerRight}
-      onClose={() => setOpenDrawerRight(false)}
+      onClose={onCloseDrawerRight}
     >
       <Box>
         <Stack
@@ -41,7 +35,6 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
         </Stack>
         <MenuList sx={{ borderTop: '1px solid lightgrey' }}>
           <Box px={2}>
-            <Typography fontFamily={'Poppins'} fontWeight={600}>Alterar Quantidade</Typography>
             <Stack mt={2}>
               <Stack direction={'row'} alignItems={'center'}>
                 <Typography
@@ -55,7 +48,7 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
                   fontFamily={'Poppins'}
                   fontWeight={600}
                 >
-                  {productStore.state.product[0]?.name}
+                  {selectedProduct[0]?.name}
                 </Typography>
               </Stack>
               <Stack direction={'row'} alignItems={'center'}>
@@ -70,7 +63,7 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
                   fontFamily={'Poppins'}
                   fontWeight={600}
                 >
-                  {productStore.state.product[0]?.quantity}
+                  {selectedProduct[0]?.quantity}
                 </Typography>
               </Stack>
               <Stack direction={'row'} alignItems={'center'}>
@@ -78,14 +71,14 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
                   variant='caption'
                   fontFamily={'Poppins'}
                 >
-                  Preço:
+                  Preço: R$
                 </Typography>
                 <Typography
                   variant='body1'
                   fontFamily={'Poppins'}
                   fontWeight={600}
                 >
-                  {productStore.state.product[0]?.price}
+                  {selectedProduct[0]?.price}
                 </Typography>
               </Stack>
             </Stack>
@@ -96,6 +89,6 @@ const DrawerRight = observer(({ openDrawerRight, setOpenDrawerRight, children })
     </Drawer>
   )
 }
-)
+
 
 export default DrawerRight

@@ -7,8 +7,13 @@ import NotFound404Page from "../pages/404";
 import MalesProductsPage from "../pages/products/males";
 import FemaleProductsPage from "../pages/products/females";
 import JewelryProductsPage from "../pages/products/jewelry";
+import SplashPage from "../pages/splash";
 
 export const router = createBrowserRouter([
+  {
+    path: '/splash',
+    element: <SplashPage/>
+  },
   {
     path: '/',
     element: <LoginPage/>

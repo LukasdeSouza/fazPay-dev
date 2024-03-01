@@ -1,27 +1,58 @@
 import { Stack } from '@mui/material'
 import CardInfo from '../../../components/CardInfo'
 import { useNavigate } from 'react-router-dom'
-import { useEffect, useState } from 'react'
-import axios from 'axios'
+import { useContext, useEffect, useState } from 'react'
+import { jewelryProductsList } from '../../../mockApi/jewelryProductsList'
+import RootStoreContext from '../../../stores/RootStore'
+import DrawerRight from '../../../components/DrawerRight'
+import { observer } from 'mobx-react-lite'
 
-const JewelryProductsPage = () => {
-  const navigate = useNavigate()
-  const [products, setProducts] = useState([])
+const JewelryProductsPage = observer(() => {
+  const { productStore } = useContext(RootStoreContext)
 
-  const onClickEdit = (index) => {
-    navigate(`/products/jewelry/${index}`, { replace: true })
+  const [selectedProductId, setSelectedProductId] = useState()
+  const [openDrawerRight, setOpenDrawerRight] = useState(false)
+
+  const onCloseDrawerRight = () => {
+    setOpenDrawerRight(false)
+    // setSelectedProductId(null)
   }
 
-  const fetchList =  async () => {
-    const response = await axios.get('../../../mockApi/jewelry.json')
-    console.log(response.data)
-    // return new Promise((resolve, _) => {
-    //   resolve(jewelryProductsList);
-    // });
+  const onClickEdit = (id) => {
+    setSelectedProductId(id)
+
+    let selected = productStore.state.products?.filter((product) => product?.id === selectedProductId)
+    productStore.setState('product', selected)
+    if (selected.length > 0) {
+      setOpenDrawerRight(true)
+    }
+  }
+
+  const onClickDelete = () => {
+    productStore.setState('products', [])
+  }
+
+  const fetchList = () => {
+    productStore.setLoading(true)
+    return new Promise((resolve) => {
+      resolve(jewelryProductsList);
+    });
   };
 
   useEffect(() => {
     fetchList()
+      .then(data => {
+        productStore.setState('products', data)
+        productStore.setLoading(false)
+      })
+      .catch(error => {
+        console.error('Erro ao buscar dados:', error);
+        productStore.setLoading(false)
+      });
+
+    return () => {
+      productStore.setState('products', []);
+    }
   }, [])
 
   return (
@@ -32,7 +63,7 @@ const JewelryProductsPage = () => {
       justifyContent={'center'}
       flexWrap={'wrap'}
     >
-      {products?.map((item, index) => (
+      {productStore.state.products?.map((item, index) => (
         <CardInfo
           key={index}
           title={item.name}
@@ -40,11 +71,19 @@ const JewelryProductsPage = () => {
           currency={item.currency}
           price={item.price}
           quantity={item.quantity}
-          onClickEdit={() => onClickEdit(index)}
+          onClickEdit={() => onClickEdit(item?.id)}
+          onClickDelete={onClickDelete}
         />
       ))}
+      <DrawerRight
+        selectedProduct={productStore.state.product}
+        openDrawerRight={openDrawerRight}
+        setOpenDrawerRight={setOpenDrawerRight}
+        onCloseDrawerRight={onCloseDrawerRight}
+      />
     </Stack>
   )
 }
+)
 
 export default JewelryProductsPage

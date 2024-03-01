@@ -27,7 +27,7 @@ const LoginPage = () => {
     } else {
       setTimeout(() => {
         setLoading(false)
-        navigate('/products/male')
+        navigate('/splash')
       }, [1200])
     }
   }

@@ -1,26 +1,52 @@
 import { Stack } from '@mui/material'
-import { useNavigate } from 'react-router-dom'
 import CardInfo from '../../../components/CardInfo'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { femaleProductsList } from '../../../mockApi/femaleProductsList'
+import RootStoreContext from '../../../stores/RootStore'
+import DrawerRight from '../../../components/DrawerRight'
+import { observer } from 'mobx-react-lite'
 
-const FemaleProductsPage = () => {
-  const navigate = useNavigate()
-  const [products, setProducts] = useState([])
+const FemaleProductsPage = observer(() => {
+  const { productStore } = useContext(RootStoreContext)
 
-  const onClickEdit = (index) => {
-    navigate(`/products/female/${index}`)
+  const [selectedProductId, setSelectedProductId] = useState()
+  const [openDrawerRight, setOpenDrawerRight] = useState(false)
+
+  const onCloseDrawerRight = () => {
+    setOpenDrawerRight(false)
+    productStore.setState('product', {})
   }
 
-  const fetchList = async() => {
-    const response = await axios.get('../../../mockApi/female.json')
-    console.log(response.data)
-    // return new Promise((resolve) => {
-    //   resolve(femaleProductsList);
-    // });
+  const onClickEdit = (id) => {
+    setSelectedProductId(id)
+
+    let selected = productStore.state.products?.filter((product) => product?.id === selectedProductId)
+    productStore.setState('product', selected)
+    if (selected.length > 0) {
+      setOpenDrawerRight(true)
+    }
+  }
+
+  const onClickDelete = (index) => {
+    productStore.setState('products', [])
+  }
+
+  const fetchList = () => {
+    return new Promise((resolve) => {
+      resolve(femaleProductsList);
+    });
   };
 
   useEffect(() => {
     fetchList()
+      .then(data => {
+        productStore.setState('products', data)
+        productStore.setLoading(false)
+      })
+      .catch(error => {
+        console.error('Erro ao buscar dados:', error);
+        productStore.setLoading(false)
+      });
   }, [])
 
   return (
@@ -31,7 +57,7 @@ const FemaleProductsPage = () => {
       justifyContent={'center'}
       flexWrap={'wrap'}
     >
-      {products?.map((item, index) => (
+      {productStore.state.products?.map((item, index) => (
         <CardInfo
           key={index}
           title={item.name}
@@ -39,11 +65,19 @@ const FemaleProductsPage = () => {
           currency={item.currency}
           price={item.price}
           quantity={item.quantity}
-          onClickEdit={() => onClickEdit(index)}
+          onClickEdit={() => onClickEdit(item?.id)}
+          onClickDelete={onClickDelete}
         />
       ))}
+      <DrawerRight
+        selectedProduct={productStore.state.product}
+        openDrawerRight={openDrawerRight}
+        setOpenDrawerRight={setOpenDrawerRight}
+        onCloseDrawerRight={onCloseDrawerRight}
+      />
     </Stack>
   )
 }
+)
 
 export default FemaleProductsPage

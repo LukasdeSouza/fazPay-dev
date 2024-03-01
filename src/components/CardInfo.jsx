@@ -1,7 +1,7 @@
-import { MoreHorizOutlined } from '@mui/icons-material'
+import { DeleteOutline, DeleteOutlineRounded, MoreHorizOutlined } from '@mui/icons-material'
 import { Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Stack, Tooltip, Typography } from '@mui/material'
 
-const CardInfo = ({ id, title, image, currency, price, quantity, onClickEdit }) => {
+const CardInfo = ({ id, title, image, currency, price, quantity, onClickEdit, onClickDelete }) => {
   return (
     <Card
       onClick={onClickEdit}
@@ -25,9 +25,9 @@ const CardInfo = ({ id, title, image, currency, price, quantity, onClickEdit }) 
           </Typography>
         }
         action={
-          <Tooltip title={'Editar Produto'} arrow>
-            <IconButton size='small' onClick={onClickEdit}>
-              <MoreHorizOutlined />
+          <Tooltip title={'Excluir Produto'} arrow>
+            <IconButton size='small' onClick={onClickDelete}>
+              <DeleteOutlineRounded />
             </IconButton>
           </Tooltip>
         }
