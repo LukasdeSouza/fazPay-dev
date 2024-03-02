@@ -12,19 +12,26 @@ import SplashPage from "../pages/splash";
 export const router = createBrowserRouter([
   {
     path: '/splash',
-    element: <SplashPage/>
+    element: <SplashPage/>,
+    errorElement: <NotFound404Page/>,
+
   },
   {
     path: '/',
-    element: <LoginPage/>
+    element: <LoginPage/>,
+    errorElement: <NotFound404Page/>,
+
   },
   {
     path: '/sign-up',
-    element: <SignUpPage/>
+    element: <SignUpPage/>,
+    errorElement: <NotFound404Page/>,
+
   },
   {
     path: '/forgot-password',
-    element: <ForgotPasswordPage/>
+    element: <ForgotPasswordPage/>,
+    errorElement: <NotFound404Page/>,
   },
   {
     path: '/products',

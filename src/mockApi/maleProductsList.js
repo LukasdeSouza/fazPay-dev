@@ -7,7 +7,4 @@ export const maleProductsList = [
     "currency": "R$",
     "quantity": 5
   }
-
 ]
-
-

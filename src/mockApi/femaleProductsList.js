@@ -8,6 +8,3 @@ export const femaleProductsList = [
     "quantity": 5
   }
 ]
-
-
-

@@ -1,9 +1,8 @@
-import { Box, Button, Fade, Grow, Link, Slide, Snackbar, Stack, TextField, Typography } from '@mui/material'
+import { Box, Button, Grow, Link, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import { useEffect, useState } from 'react'
 import CardEmpty from '../../components/CardEmpty'
 import { LoadingButton } from '@mui/lab'
 import InputPassword from '../../components/InputPassword'
-import fazPayBackground from '../../assets/faz-payBackground.png'
 import fazPayLogo from '../../assets/FAZPAY-LOGO-branca.png'
 import { useNavigate } from 'react-router-dom'
 
