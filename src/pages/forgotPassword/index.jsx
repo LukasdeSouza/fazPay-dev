@@ -1,5 +1,4 @@
 import { Box, Button, Stack, TextField, Typography } from '@mui/material'
-import React from 'react'
 import CardEmpty from '../../components/CardEmpty'
 import { LoadingButton } from '@mui/lab'
 import { ArrowBackSharp, SendRounded } from '@mui/icons-material'
@@ -10,7 +9,7 @@ const ForgotPasswordPage = () => {
   const navigate = useNavigate()
 
   const handleRedefinePassword = () => {
-
+    navigate('/')
   }
 
   return (
@@ -39,7 +38,6 @@ const ForgotPasswordPage = () => {
                 variant='contained'
                 startIcon={<SendRounded />}
                 onClick={handleRedefinePassword}
-                // size='small'
                 sx={{
                   background: "#7161c2",
                   "&:hover": {
