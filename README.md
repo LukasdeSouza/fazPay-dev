@@ -1,6 +1,6 @@
 # FazPay DevProject
 
-Projeto proposto pela fazPay com o objetivo de avaliar habilidades em criação de aplicações utilizando React, Jest e outras bibliotecas.
+Projeto criado com o objetivo de demonstrar habilidades em criação de aplicações utilizando React, Jest e outras bibliotecas.
 
 A aplicação foi construída através do Vite, feita com Javascript, MUI, Mobx, Jest e React-router-dom para o controle de Rotas
 
